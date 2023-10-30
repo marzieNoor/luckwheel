@@ -31,6 +31,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    publishing {
+        multipleVariants {
+            allVariants()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
