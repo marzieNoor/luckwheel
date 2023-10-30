@@ -37,6 +37,7 @@ class PielView : View {
     private var mLuckyItemList: List<LuckyItem>? = null
     private var mPieRotateListener: PieRotateListener? = null
 
+    private val emptyBitmap = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888)
     interface PieRotateListener {
         fun rotateDone(index: Int)
     }
@@ -108,20 +109,29 @@ class PielView : View {
         drawBackgroundColor(canvas, defaultBackgroundColor)
         init()
         var tmpAngle = mStartAngle
-        val sweepAngle = (360 / mLuckyItemList!!.size).toFloat()
-        for (i in mLuckyItemList!!.indices) {
-            mArcPaint!!.color = mLuckyItemList!![i].color
-            canvas.drawArc(mRange, tmpAngle, sweepAngle, true, mArcPaint!!)
-            drawText(canvas, tmpAngle, sweepAngle, mLuckyItemList!![i].text)
-            drawImage(
-                canvas,
-                tmpAngle,
-                BitmapFactory.decodeResource(resources, mLuckyItemList!![i].icon)
-            )
-            tmpAngle += sweepAngle
+        mLuckyItemList?.let {
+            val sweepAngle = (360 / it.size).toFloat()
+            for (i in it.indices) {
+                mArcPaint!!.color = it[i].color
+                canvas.drawArc(mRange, tmpAngle, sweepAngle, true, mArcPaint!!)
+                drawText(canvas, tmpAngle, sweepAngle, it[i].text)
+                if (it[i].icon != null) {
+                    drawImage(
+                        canvas,
+                        tmpAngle,
+                        emptyBitmap)
+                } else
+                    drawImage(
+                        canvas,
+                        tmpAngle,
+                        it[i].icon!!)
+                tmpAngle += sweepAngle
+            }
         }
+
         drawCenterImage(canvas, drawableCenterImage)
     }
+
 
     private fun drawBackgroundColor(canvas: Canvas, color: Int) {
         if (color == -1) return

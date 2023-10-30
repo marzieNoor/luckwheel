@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.marzie.nourmohammadi.luckywheels.luckWheel.model.LuckyItem
-import com.marzie.nourmohammadi.luckywheels.luckWheel.ui.LuckyWheelView
+import com.marzie.nourmohammadi.luckwheel.model.LuckyItem
+import com.marzie.nourmohammadi.luckwheel.ui.LuckyWheelView
 import java.util.Random
 
 
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpLuckWheel() {
-        val luckyWheelView = findViewById<View>(R.id.luckyWheel) as LuckyWheelView
+        val luckyWheelView = findViewById<View>(R.id.luckWheel2) as LuckyWheelView
         for (i in 0..11) {
             val luckyItem = LuckyItem()
             luckyItem.text = "Item $i"

@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.marzie.nourmohammadi.luckywheels.luckWheel.ui.LuckyWheelView
-        android:id="@+id/luckyWheel"
+    <com.marzie.nourmohammadi.luckwheel.ui.LuckyWheelView
+        android:id="@+id/luckWheel2"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerInParent="true"
@@ -28,5 +28,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/luckyWheel" />
+        app:layout_constraintTop_toBottomOf="@+id/luckWheel2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
